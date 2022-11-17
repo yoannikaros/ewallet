@@ -1,4 +1,6 @@
 import 'package:ewallet/shared/theme.dart';
+import 'package:ewallet/ui/widgets/buttons.dart';
+import 'package:ewallet/ui/widgets/form.dart';
 import 'package:flutter/material.dart';
 
 class SignInPage extends StatelessWidget {
@@ -33,47 +35,16 @@ class SignInPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 //Email Input
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Email Address',
-                      style: blackTextStyle.copyWith(fontWeight: medium),
-                    ),
-                    const SizedBox(
-                      height: 8,
-                    ),
-                    TextFormField(
-                      decoration: InputDecoration(
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(14)),
-                          contentPadding: const EdgeInsets.all(12)),
-                    )
-                  ],
-                ),
+                CustomFormField(tittle: 'Email Address'),
 
                 SizedBox(
                   height: 16,
                 ),
+
                 //Password Input
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Password Input',
-                      style: blackTextStyle.copyWith(fontWeight: medium),
-                    ),
-                    const SizedBox(
-                      height: 8,
-                    ),
-                    TextFormField(
-                      obscureText: true,
-                      decoration: InputDecoration(
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(14)),
-                          contentPadding: const EdgeInsets.all(12)),
-                    )
-                  ],
+                CustomFormField(
+                  tittle: 'Password',
+                  obscureText: true,
                 ),
 
                 const SizedBox(
@@ -91,21 +62,9 @@ class SignInPage extends StatelessWidget {
                   height: 8,
                 ),
 
-                SizedBox(
-                  height: 50,
-                  width: double.infinity,
-                  child: TextButton(
-                    onPressed: () {},
-                    style: TextButton.styleFrom(
-                        backgroundColor: purpleColor,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(56))),
-                    child: Text(
-                      'Sign In',
-                      style: whiteTextStyle.copyWith(
-                          fontSize: 16, fontWeight: semiBold),
-                    ),
-                  ),
+                CustomFilledButton(
+                  title: 'Sign in',
+                  onPressed: () {},
                 ),
               ],
             ),
@@ -113,10 +72,10 @@ class SignInPage extends StatelessWidget {
           const SizedBox(
             height: 50,
           ),
-          Text(
-            'Create New Account',
-            style: whiteTextStyle.copyWith(fontSize: 16, fontWeight: semiBold),
-          ),
+          CustomTextButtom(
+            title: 'Create New Account',
+            onPressed: () {},
+          )
         ],
       ),
     );
