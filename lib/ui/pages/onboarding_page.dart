@@ -96,7 +96,9 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                           children: [
                             CustomFilledButton(
                               title: 'Get Started',
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.pushNamed(context, '/Sign-up');
+                              },
                             ),
                             const SizedBox(
                               height: 20,
@@ -106,11 +108,8 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                               width: double.infinity,
                               child: TextButton(
                                 onPressed: () {
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) =>
-                                              const SignInPage()));
+                                  Navigator.pushNamedAndRemoveUntil(
+                                      context, '/signin', (route) => false);
                                 },
                                 style: TextButton.styleFrom(
                                     padding: EdgeInsets.zero),

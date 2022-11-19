@@ -1,10 +1,11 @@
-import 'package:ewallet/shared/theme.dart';
-import 'package:ewallet/ui/widgets/buttons.dart';
-import 'package:ewallet/ui/widgets/form.dart';
 import 'package:flutter/material.dart';
 
-class SignInPage extends StatelessWidget {
-  const SignInPage({Key? key}) : super(key: key);
+import '../../shared/theme.dart';
+import '../widgets/buttons.dart';
+import '../widgets/form.dart';
+
+class SignUpSetKTP extends StatelessWidget {
+  const SignUpSetKTP({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +22,7 @@ class SignInPage extends StatelessWidget {
                 image: DecorationImage(
                     image: AssetImage('assets/img_logo_light.png'))),
           ),
-          Text('Sign In & \nGrow Your Finance',
+          Text('Verifikasi KTP',
               style:
                   blackTextStyle.copyWith(fontSize: 20, fontWeight: semiBold)),
           const SizedBox(
@@ -32,51 +33,45 @@ class SignInPage extends StatelessWidget {
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20), color: whiteColor),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                //Email Input
-                CustomFormField(tittle: 'Email Address'),
-
-                SizedBox(
-                  height: 16,
+                Container(
+                  height: 120,
+                  width: 120,
+                  decoration: BoxDecoration(
+                      shape: BoxShape.circle, color: lightBackgroundColor),
+                  child: Center(
+                    child: Image.asset(
+                      'assets/ic_upload.png',
+                      width: 32,
+                    ),
+                  ),
                 ),
-
-                //Password Input
+                SizedBox(
+                  height: 8,
+                ),
                 CustomFormField(
-                  tittle: 'Password',
+                  tittle: 'Set Pin',
                   obscureText: true,
                 ),
-
-                const SizedBox(
-                  height: 8,
-                ),
-
-                Align(
-                    alignment: Alignment.centerRight,
-                    child: Text(
-                      'Forgot Password',
-                      style: blueTextStyle,
-                    )),
-
                 SizedBox(
-                  height: 8,
+                  height: 30,
                 ),
-
                 CustomFilledButton(
-                  title: 'Sign in',
-                  onPressed: () {},
+                  title: 'Continue',
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/sign-up-success');
+                  },
                 ),
               ],
             ),
           ),
-          const SizedBox(
+          SizedBox(
             height: 50,
           ),
           CustomTextButtom(
-            title: 'Create New Account',
-            onPressed: () {
-              Navigator.pushNamed(context, '/Sign-up');
-            },
+            title: 'SKIP FOR NOW',
+            onPressed: () {},
           )
         ],
       ),

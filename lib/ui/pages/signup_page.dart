@@ -1,10 +1,11 @@
-import 'package:ewallet/shared/theme.dart';
-import 'package:ewallet/ui/widgets/buttons.dart';
-import 'package:ewallet/ui/widgets/form.dart';
 import 'package:flutter/material.dart';
 
-class SignInPage extends StatelessWidget {
-  const SignInPage({Key? key}) : super(key: key);
+import '../../shared/theme.dart';
+import '../widgets/buttons.dart';
+import '../widgets/form.dart';
+
+class SignUpPage extends StatelessWidget {
+  const SignUpPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +22,7 @@ class SignInPage extends StatelessWidget {
                 image: DecorationImage(
                     image: AssetImage('assets/img_logo_light.png'))),
           ),
-          Text('Sign In & \nGrow Your Finance',
+          Text('Sign Up & \nGrow Your Finance',
               style:
                   blackTextStyle.copyWith(fontSize: 20, fontWeight: semiBold)),
           const SizedBox(
@@ -34,6 +35,12 @@ class SignInPage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                //Full Name Input
+                CustomFormField(tittle: 'Full Name'),
+
+                SizedBox(
+                  height: 16,
+                ),
                 //Email Input
                 CustomFormField(tittle: 'Email Address'),
 
@@ -47,24 +54,15 @@ class SignInPage extends StatelessWidget {
                   obscureText: true,
                 ),
 
-                const SizedBox(
-                  height: 8,
-                ),
-
-                Align(
-                    alignment: Alignment.centerRight,
-                    child: Text(
-                      'Forgot Password',
-                      style: blueTextStyle,
-                    )),
-
                 SizedBox(
-                  height: 8,
+                  height: 30,
                 ),
 
                 CustomFilledButton(
-                  title: 'Sign in',
-                  onPressed: () {},
+                  title: 'Continue',
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/sign-up-upload-profile');
+                  },
                 ),
               ],
             ),
@@ -73,9 +71,9 @@ class SignInPage extends StatelessWidget {
             height: 50,
           ),
           CustomTextButtom(
-            title: 'Create New Account',
+            title: 'Sign in',
             onPressed: () {
-              Navigator.pushNamed(context, '/Sign-up');
+              Navigator.pushNamed(context, '/signin');
             },
           )
         ],
